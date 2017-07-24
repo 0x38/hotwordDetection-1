@@ -5,16 +5,16 @@ A hotword ("hey alexa") detection service [(using snowboy)](https://snowboy.kitt
 # Setup 
 
 
-Install dependency
+1- Install dependency
 
 ```
 sudo apt-get install sox mplayer swig3.0 python-pyaudio python3-pyaudio
 pip install pyaudio
 ```
 
-[Configure audio at raspberry pi ](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
+2 - [Configure audio at raspberry pi ](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
 
-Install hotwordDetection command and add to a well known folder (so we can run in any place)
+3 - Install hotwordDetection command and add to a well known folder (so we can run in any place)
 
 ```
 sudo mkdir /opt/hotwordDetection
@@ -22,9 +22,11 @@ sudo git clone git@github.com:neyfrota/hotword-detection-service.git /opt/hotwor
 sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
 ``` 
 
-Check command usage
+4 - Check command usage
 ```
-$ hotwordDetection 
+hotwordDetection 
+```
+```
 usage: hotwordDetection [-h] [--model MODEL] [--action ACTION]
 
 Use snowboy to detect a hotword (hey alexa) and trigger a command
@@ -38,7 +40,7 @@ optional arguments:
 
 # Run
 
-
+First run as test
 ```
 hotwordDetection --action "echo 'My action'"
 ```
@@ -48,8 +50,8 @@ model:  /opt/hotwordDetection/alexa.umdl
 action: echo 'My action'
 Listening... Press Ctrl+C to exit
 ```
-At this point, hotwordDetection is listen microphone waiting for the hotword.
-Try say "hey alexa". If all goes fine, we see a output like that:
+At this point, hotwordDetection is listen for the hotword.
+Say "hey alexa". If all goes fine, we see a output like that:
 ```
 Hotword detected
 My action
