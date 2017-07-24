@@ -22,7 +22,7 @@ sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
 
 # Run
 
-Run this command to print a message for each time you say "hey alexa"
+Print "My action" each time you say "hey alexa"
 ```
 hotwordDetection --action "echo 'My action'"
 ```
@@ -43,7 +43,7 @@ At this point, try to say "hey alexa". If all goes fine, we see a output like th
 > Listening... Press Ctrl+C to exit
 > ```
 
-Hit control+c to stop 
+Hit control+c to stop and try better examples.
 
 Play a beep each "hey alexa"
 ```
@@ -58,4 +58,4 @@ hotwordDetection --action 'alexa ask'
 
 # Credits
 
-* [snowboy](https://snowboy.kitt.ai/) framework to detect "ḧey alexa" hotword.
+* [snowboy](https://snowboy.kitt.ai/) framework
