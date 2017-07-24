@@ -5,21 +5,16 @@ A hotword ("hey alexa") detection service [(using snowboy)](https://snowboy.kitt
 # Setup 
 
 
-### Install dependency
-
+Install dependency
 
 ```
 sudo apt-get install sox mplayer swig3.0 python-pyaudio python3-pyaudio
 pip install pyaudio
 ```
 
-### Configure audio
+[Configure audio at raspberry pi ](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
 
-Visit [raspberry pi audio setup](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
-
-### Install hotwordDetection
-
-Install hotwordDetection (this repository) and add command to a well known folder so we can run in any place
+Install hotwordDetection command and add to a well known folder (so we can run in any place)
 
 ```
 sudo mkdir /opt/hotwordDetection
@@ -27,7 +22,7 @@ sudo git clone git@github.com:neyfrota/hotword-detection-service.git /opt/hotwor
 sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
 ``` 
 
-Check command usage:
+Check command usage
 ```
 $ hotwordDetection 
 usage: hotwordDetection [-h] [--model MODEL] [--action ACTION]
@@ -41,9 +36,13 @@ optional arguments:
 
 ```
 
-# Test
+# Run
+
+
 ```
-$ hotwordDetection --action "echo 'My action'"
+hotwordDetection --action "echo 'My action'"
+```
+```
 Start hotword detection
 model:  /opt/hotwordDetection/alexa.umdl
 action: echo 'My action'
@@ -57,8 +56,6 @@ My action
 Listening... Press Ctrl+C to exit
 ```
 Hit control+c to stop 
-
-# Run
 
 Play a beep each "hey alexa"
 ```
