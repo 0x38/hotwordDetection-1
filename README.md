@@ -14,7 +14,7 @@ pip install pyaudio
 
 [Configure raspberry pi audio](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
 
-Download and link to a well known folder (so we can run in any place) 
+Install and link to a well known folder (so we can run in any place) 
 ```
 sudo git -C /opt/ clone https://github.com/neyfrota/hotwordDetection.git 
 sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
