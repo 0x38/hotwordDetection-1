@@ -1,12 +1,11 @@
 # Hotword detection service
 
-A hotword ("hey alexa") detection service [(using snowboy)](https://snowboy.kitt.ai/) for my [Voice assistant](https://github.com/neyfrota/Billy-bass-voice-assistant/).
+A hotword ("hey alexa") detection service [(using snowboy)](https://snowboy.kitt.ai/) for raspberry pi 
 
 # Setup 
 
-This doc is fine-tunned for my [raspberry pi setup](https://permissiontowrite.wordpress.com/2017/06/21/), but maybe work in other debians. 
 
-### 1 - Install dependency
+### Install dependency
 
 
 ```
@@ -14,7 +13,11 @@ sudo apt-get install sox mplayer swig3.0 python-pyaudio python3-pyaudio
 pip install pyaudio
 ```
 
-### 2 - Install hotwordDetection
+### Configure audio
+
+Visit [raspberry pi audio setup](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
+
+### Install hotwordDetection
 
 Install hotwordDetection (this repository) and add command to a well known folder so we can run in any place
 
@@ -23,12 +26,6 @@ sudo mkdir /opt/hotwordDetection
 sudo git clone git@github.com:neyfrota/hotword-detection-service.git /opt/hotwordDetection
 sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
 ``` 
-
-### 3 - configure audio
-
-Visit [raspberry pi audio setup](https://permissiontowrite.wordpress.com/2017/07/16/raspberry-pi-audio-setup/).
-
-### 4 - check
 
 Check command usage:
 ```
@@ -44,7 +41,7 @@ optional arguments:
 
 ```
 
-# Run
+# Test
 ```
 $ hotwordDetection --action "echo 'My action'"
 Start hotword detection
@@ -61,14 +58,19 @@ Listening... Press Ctrl+C to exit
 ```
 Hit control+c to stop 
 
-# Examples
+# Run
 
-Now we can start real action like this:
+Play a beep each "hey alexa"
+```
+hotwordDetection --action 'play /opt/hotwordDetection/beep.wav'
+``` 
 
-* ```hotwordDetection --action 'play /opt/hotwordDetection/beep.wav'``` Play a beep each "hey alexa"
-* ```hotwordDetection --action 'alexa ask'``` [Ask alexa](https://github.com/neyfrota/alexa-command-line-client) each "hey alexa"
+[Ask alexa](https://github.com/neyfrota/alexa-command-line-client) each "hey alexa"
+```
+hotwordDetection --action 'alexa ask'
+``` 
+
 
 # Credits
-I cannot build this without help. **__"I am what I am because of who we all are"__**
 
 * [snowboy](https://snowboy.kitt.ai/) framework to detect "ḧey alexa" hotword.
