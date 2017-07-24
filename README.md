@@ -1,62 +1,48 @@
 # Hotword detection service
 
-A hotword ("hey alexa") detection service [(using snowboy)](https://snowboy.kitt.ai/) for raspberry pi 
+A hotword ("hey alexa") detection tool [(using snowboy)](https://snowboy.kitt.ai/) for raspberry pi 
 
-# Setup 
+# Install
 
 
-1- Install dependency
+Install dependency
 
 ```
 sudo apt-get install sox mplayer swig3.0 python-pyaudio python3-pyaudio
 pip install pyaudio
 ```
 
-2 - [Configure audio at raspberry pi ](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
+[Configure raspberry pi audio](https://permissiontowrite.wordpress.com/raspberry-pi-audio-setup/)
 
-3 - Install hotwordDetection command and add to a well known folder (so we can run in any place)
-
+Download and link to a well known folder (so we can run in any place) 
 ```
-sudo mkdir /opt/hotwordDetection
-sudo git clone git@github.com:neyfrota/hotword-detection-service.git /opt/hotwordDetection
+sudo git -C /opt/ clone https://github.com/neyfrota/hotwordDetection.git 
 sudo ln -s /opt/hotwordDetection/hotwordDetection /usr/bin/hotwordDetection
 ``` 
 
-4 - Check command usage
-```
-hotwordDetection 
-```
-```
-usage: hotwordDetection [-h] [--model MODEL] [--action ACTION]
-
-Use snowboy to detect a hotword (hey alexa) and trigger a command
-
-optional arguments:
-  -h, --help       show this help message and exit
-  --model MODEL    snowboy .umdl model (default alexa.umdl)
-  --action ACTION  Action to execute (required)
-
-```
-
 # Run
 
-First run as test
+Run this command to print a message for each time you say "hey alexa"
 ```
 hotwordDetection --action "echo 'My action'"
 ```
-```
-Start hotword detection
-model:  /opt/hotwordDetection/alexa.umdl
-action: echo 'My action'
-Listening... Press Ctrl+C to exit
-```
-At this point, hotwordDetection is listen for the hotword.
-Say "hey alexa". If all goes fine, we see a output like that:
-```
-Hotword detected
-My action
-Listening... Press Ctrl+C to exit
-```
+Check if listen
+
+> ```
+> Start hotword detection
+> model:  /opt/hotwordDetection/alexa.umdl
+> action: echo 'My action'
+> Listening... Press Ctrl+C to exit
+> ```
+
+At this point, try to say "hey alexa". If all goes fine, we see a output like that:
+
+> ```
+> Hotword detected
+> My action
+> Listening... Press Ctrl+C to exit
+> ```
+
 Hit control+c to stop 
 
 Play a beep each "hey alexa"
